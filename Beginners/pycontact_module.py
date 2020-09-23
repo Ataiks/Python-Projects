@@ -47,7 +47,7 @@ def disp(query):
         print(contacts[query])
         dlt=input('Want to delete this contact ?[Y/N]').lower()
         if dlt=='y':
-            DelContact(query)
+            DelContact()
         else:
             DisplayAll()
     else:
@@ -110,13 +110,13 @@ def ViewContact():
 #Define a function 'DelContact' using a positional argument
 #Initiate a decision making
 #Call the 'DisplayAll' function
- def DelContact(query):
-    query=str(input('Enter name of the contact you wish to delete').capitalize())
+ def DelContact():
+    name=str(input('Enter name of the contact you wish to delete').capitalize())
     confirm = input('Are you sure you wish to delete this contact? Y/N: ')
             #Initiate a decision
     if confirm.upper() == 'Y':
             #If yes, delete contact from Phonebook
-                contacts.pop(query)
+                contacts.pop(name)
     else:
         pass
     DisplayAll()
