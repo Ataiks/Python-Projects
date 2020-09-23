@@ -38,7 +38,9 @@ def menu():
         #Closing statement
         print('\n\b Thanks for using the Py Contact Book')
  
-Define another function display query with required argument query, as disp(query)
+#Define another function display query with required argument query, as disp(query)
+#Set up a decision-making process using control flow statements
+#Initiate two new functions 'DisplayAll' and 'Addcontact', to be defined below.
 def disp(query):
     #Set up a decision making process using control flow statements
     if query in contacts.keys():
