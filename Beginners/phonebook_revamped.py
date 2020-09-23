@@ -10,3 +10,6 @@ def Phonebook():
         #call menu function.
     contacts={}
     menu()
+
+#Call the Phonebook function to run the program
+Phonebook()
