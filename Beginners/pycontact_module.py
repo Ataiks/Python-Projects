@@ -38,3 +38,84 @@ def menu():
         #Closing statement
         print('\n\b Thanks for using the Py Contact Book')
  
+Define another function display query with required argument query, as disp(query)
+def disp(query):
+    #Set up a decision making process using control flow statements
+    if query in contacts.keys():
+        print(contacts[query])
+        dlt=input('Want to delete this contact ?[Y/N]').lower()
+        if dlt=='y':
+            DelContact(query)
+        else:
+            DisplayAll()
+    else:
+        pi=input('Error 404, contact not found. Want to add this contact? [Y/N]').lower()
+        if pi=='y':
+            AddContact()
+        else:
+            pass
+#Define a new function 'DisplayAll'
+#Include decision making using control statements
+#Call the menu function defined earlier at the end of this function
+def DisplayAll():
+    if len(contacts) >= 1:
+        print('your contacts are:\n','+'*30)
+        for contact, num in contacts.items():
+            print(contact, '-----', num)   
+    else:
+        print('You have an empty Contact List')
+        opt=input('Want to Add contacts? Y/N :')
+        if opt.capitalize()=='Y':
+            AddContact()
+        else:
+            pass
+    menu()
+    
+#Define a new function AddContact
+#Use the try-except block here too
+#Include conditions for decision making
+#Call the displayall function
+#Call the disp(query) function
+def AddContact():
+    print('You can add a new entry here')
+    name=str(input('Enter Name :').capitalize())
+    try:
+        num = int(input('Enter Num :'))
+    except ValueError:
+        input('invalid value entered')
+        num = 0
+        '''return num'''
+    if name not in contacts.keys():
+        contacts[name]=num
+        print('You have successfully added ', contacts[name], 'to your contacts')
+        DisplayAll()
+    else:
+        print('This Contact already exists in phonebook')
+        disp(name)
+        
+#Define a new function 'ViewContact'
+#Using decision making here also
+#Call the disp(query) function 
+def ViewContact():
+    query=input('Enter the name or number you want to view: ')
+    if type(query)==str:
+        query = query.capitalize()
+        disp(query)         
+    elif type(query)==int:
+        print(contacts.values())
+        
+#Final function for the module
+#Define a function 'DelContact' using a positional argument
+#Initiate a decision making
+#Call the 'DisplayAll' function
+ def DelContact(query):
+    query=str(input('Enter name of the contact you wish to delete').capitalize())
+    confirm = input('Are you sure you wish to delete this contact? Y/N: ')
+            #Initiate a decision
+    if confirm.upper() == 'Y':
+            #If yes, delete contact from Phonebook
+                contacts.pop(query)
+    else:
+        pass
+    DisplayAll()
+ 
