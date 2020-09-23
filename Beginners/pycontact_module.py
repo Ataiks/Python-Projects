@@ -107,7 +107,7 @@ def ViewContact():
         print(contacts.values())
         
 #Final function for the module
-#Define a function 'DelContact' using a positional argument
+#Define a function 'DelContact' 
 #Initiate a decision making
 #Call the 'DisplayAll' function
  def DelContact():
